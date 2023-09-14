@@ -12,12 +12,12 @@ function App() {
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-
+    console.log(data);
     setMovies(data.Search);
   };
 
   useEffect(() => {
-    searchMovies("");
+    searchMovies("spiderman");
   }, []);
 
   return (
@@ -26,7 +26,7 @@ function App() {
 
       <div className="search">
         <input
-          placeholder="Porcure por filmes"
+          placeholder="Porcure filmes"
           value={searchTerm}
           onChange={(e) => setSearchTerme(e.target.value)}
           onKeyUp={() => searchMovies(searchTerm)}
